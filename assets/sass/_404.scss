@@ -1,0 +1,23 @@
+.page-404 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-size: cover;
+	flex: 1;
+	text-align: center;
+	margin-bottom: 25vh;
+	h1 {
+		font-size: 100px;
+		@include min-break($break-medium) {
+			font-size: 160px;
+		}
+	}
+	p {
+		margin-bottom: 30px;	
+		
+		@include min-break($break-medium) {
+			font-size: 20px;
+		}
+	}
+}

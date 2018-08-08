@@ -1,0 +1,230 @@
+/* Team Members */
+.thb-team-row {
+	.thb-carousel {
+		.thb-team-member.member_style2 {
+			margin-top: 2vh;
+		}
+	}
+	.row.style1 {
+		.columns {
+			width: 100%;
+			overflow: hidden;
+		}
+		@extend .thb-padding-sizes;
+	}
+	
+	.thb-team-member {
+		display: block;
+		margin-bottom: 30px;
+		
+		@include min-break($break-medium) {
+			margin-bottom: 40px;
+		}
+		
+		img {
+			width: 100%;	
+			display: block;
+			@extend .quick-transition;
+		}
+		.team-container {
+			position: relative;
+		}
+		h6 {
+			color: $color1;
+			font-size: 20px;
+			text-transform: none;
+			font-weight: 400;
+			margin-bottom: 0;
+			letter-spacing: normal;
+		}
+		.job-title {
+			font-size: 14px;
+			margin-bottom: 10px;
+			opacity: 0.6;
+		}
+		.thb-description {
+			font-size: 14px;
+			color: #343434;
+		}
+		.thb-icons {
+			a {
+				font-size: 14px;
+				display: inline-flex;
+				margin-right: 4px;
+				color: $black;
+			}
+		}
+		.team-information {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0;
+			padding: 30px;
+			background: transparent;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			color: #343434;
+			will-change: opacity;
+			@extend .quick-transition;
+		}
+		&:hover {
+			.team-information {
+				opacity: 1;
+			}	
+		}
+		&.member_style1 {
+			.team-container {
+				overflow: hidden;	
+				margin-bottom: 25px;
+			}
+			h6 {
+				color: $black;	
+			}
+			.job-title {
+				margin: 0;
+				color: $black;
+				opacity: 0.4;
+			}
+			.team-information {
+				justify-content: space-between;
+				bottom: -1px;
+				@extend .quick-transition;
+			}
+			.thb-icons {
+				a {
+					align-items: center;
+					justify-content: center;
+					width: 30px;
+					height: 30px;
+					color: #fff;
+					border-radius: 15px;
+					font-size: 12px;
+					margin-right: 2px;
+					&.twitter {
+						background: map-get($social, twitter);
+						
+						&:hover {
+							background: darken(map-get($social, twitter), 10%);
+						}
+					}
+					&.facebook {
+						background: map-get($social, facebook);
+						
+						&:hover {
+							background: darken(map-get($social, facebook), 10%);
+						}
+					}
+					&.linkedin {
+						background: map-get($social, linkedin);
+						
+						&:hover {
+							background: darken(map-get($social, linkedin), 10%);
+						}
+					}
+					&.instagram {
+						background: map-get($social, instagram);
+						
+						&:hover {
+							background: darken(map-get($social, instagram), 10%);
+						}
+					}
+				}	
+			}
+		} /* End .member_style1 */
+		&.member_style2 {
+			.team-information {
+				opacity: 1;
+				justify-content: space-between;
+				backface-visibility: hidden;
+				@include translate3d(0,0,0);
+			}
+			.thb-description {
+				margin-bottom: 15px;
+			}
+			.team-container>img {
+				visibility: hidden;
+			}
+			img {
+				@include filter(grayscale(100%));	
+			}
+			h6 {
+				font-weight: 500;	
+			}
+			&:hover {
+				img {
+					@include filter(grayscale(0%));	
+				}
+			}
+			.atvImg-container {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		} /* End .member_style2 */
+		&.member_style3 {
+			.team-container {
+				border-radius: 3px;
+				@extend .quick-transition;
+			}
+			.team-information {
+				border-radius: 3px;
+				justify-content: space-between;
+			}
+			.thb-description {
+				margin-bottom: 15px;
+			}
+			img {
+				border-radius: 3px;
+			}
+			&:hover {
+				.team-container {
+					@include box-shadow(0 10px 40px rgba(#1fa1fc, 0.45));	
+				}
+			}
+			.info-container {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				padding-top: 10px;
+				justify-content: space-between;
+			}
+		} /* End .member_style3 */
+		
+		&.member_style1,
+		&.member_style3 {
+			.thb-description {
+				@include backface-visibility(hidden);
+				@include perspective(1000px);
+				@include transition(transform 1s ease, opacity 2s ease);
+				@include transform(rotateY(-15deg) skewY(6deg));
+			}
+			&:hover .thb-description {
+				@include transform(rotateY(0deg) skewY(0deg));
+			}
+		}
+	} /* End .thb-team-member */
+	
+	&.team-light {
+		.member_style3,
+		.member_style2 {
+			.team-information {
+				color: #fff;
+				
+				h6,
+				.thb-description,
+				.thb-icons a {
+					color: #fff;	
+				}
+				
+			}
+		}
+		.member_style1 {
+			.thb-description {
+				color: #fff;	
+			}
+		}
+	}
+} /* End .thb-team-row */
